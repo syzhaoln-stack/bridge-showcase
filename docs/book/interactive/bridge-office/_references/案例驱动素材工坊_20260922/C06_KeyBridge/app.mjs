@@ -1,0 +1,29 @@
+import {makeModel,energyMJ,dimensions} from './model.mjs';
+import {collapseTimeAtProgress,progressAtCollapseTime,collapseClock,COLLAPSE_EVENTS,TIME_RANGE} from './key-collapse.mjs';
+import {bindKeyEvidence} from './key-evidence.mjs';
+const $=id=>document.getElementById(id),clamp=x=>Math.max(0,Math.min(1,x));
+let model;try{model=makeModel($('scene'),$('labels'))}catch(e){$('scene').innerHTML='<p class="error">三维未能初始化。请使用支持 WebGL 的浏览器；下方原图、二维比较与文字仍可使用。</p>';console.error(e)}
+let current='key',playing=false,previous=0,keyTime=-30,keyEvidence;const stages=['船舶接近','右舷艏碰墩','支承损伤发展','主跨开始垮落','墩倒与落水'];
+const descriptions=['出港船舶接近主桥；航迹为依原图绘制的教学路径，不是逐点 AIS 数据。','01:29:09，右舷船艏开始接触 17 号墩西北柱。接触不等于桥墩立即完全消失。','桥墩损伤和位移会改变支承条件；观察主桥连续桁架依赖的四个支点。','01:29:15（+6 s），18 跨开始垮塌。动画用慢动作显示结构路径中断，不给出虚构内力。','01:29:22（+13 s）17 号墩倒塌，随后更多引桥跨垮落。落梁形态是教学插值，请对照官方事故后实拍。'];
+function setProgress(p){p=Math.max(0,Math.min(4,Number(p)));$('progress').value=p;const i=Math.min(4,Math.floor(p+.001)),t=Math.round(collapseTimeAtProgress(p)*1e6)/1e6,event=[...COLLAPSE_EVENTS].reverse().find(e=>t>=e.t);keyTime=t;$('realTime').value=t;$('stageValue').value=collapseClock(t);$('relativeTime').textContent=t<0?`首次碰撞前 ${(-t).toFixed(1)} 秒`:`首次碰撞后 ${t.toFixed(1)} 秒`;if(current==='key')$('subtitle').textContent=event?`已到达：${event.clock} · ${event.label}`:'2024年3月26日凌晨。夜间靠近桥墩；观察原监控中的船位和桥面轮廓。';document.querySelectorAll('[data-stage]').forEach(b=>b.classList.toggle('active',+b.dataset.stage===i));model?.setProgress(p);keyEvidence?.update(t)}
+function stop(){playing=false;$('play').textContent='播放过程'}
+function pauseDialogue(){$('narration').pause();}
+function switchCase(){current='key';model?.setActive(true);setProgress(progressAtCollapseTime(keyTime));}
+
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>switchCase(b.dataset.tab));document.querySelectorAll('[data-stage]').forEach(b=>b.onclick=()=>{pauseDialogue();stop();keyEvidence?.detach();setProgress(+b.dataset.stage)});document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>model?.view(b.dataset.view));
+$('progress').oninput=()=>{stop();setProgress($('progress').value)};$('play').onclick=()=>{pauseDialogue();keyEvidence?.detach();playing=!playing;if(playing&&keyTime>=TIME_RANGE.max)setProgress(0);$('play').textContent=playing?'暂停':'播放过程'};$('reset').onclick=()=>{stop();setProgress(0);model?.view('overview')};$('pathToggle').onchange=()=>model?.setPaths($('pathToggle').checked);$('protectToggle').onchange=()=>model?.setProtection($('protectToggle').checked);
+$('realTime').oninput=()=>{pauseDialogue();stop();keyEvidence?.detach();setProgress(progressAtCollapseTime(+$('realTime').value));};
+$('reset').onclick=()=>{pauseDialogue();stop();keyEvidence?.detach();setProgress(0);model?.view('cctv');};
+function energy(){const v=+$('speed').value;$('speedValue').value=v.toFixed(1)+' kn';$('energy').textContent=energyMJ(v).toFixed(1)+' MJ';$('energyRatio').textContent=(energyMJ(v)/energyMJ(6.4)).toFixed(3)}$('speed').oninput=energy;energy();
+const audio=$('narration');function cue(d){stop();const cue=d.cue||'';if(!cue.startsWith('key:'))return;switchCase();const actions={impact:[1,'pier'],loadpath:[2,'elevation'],truss:[0,'elevation'],collapse:[progressAtCollapseTime(13),'cctv'],timeline:[progressAtCollapseTime(15),'cctv'],protection:[0,'plan'],plan:[1,'plan'],ship:[0,'ship'],energy:[0,'ship']};const a=actions[cue.split(':')[1]]||[0,'overview'];setProgress(a[0]);model?.view(a[1]);if(cue==='key:energy'){$('speed').value=3.2;energy()}}
+audio.addEventListener('dialoguecue',e=>cue(e.detail));
+let notesKey='c06-ship-bridge-notes',records=[];try{$('notes').value=localStorage.getItem(notesKey)||'';records=JSON.parse(localStorage.getItem(notesKey+'-records')||'[]')}catch{}$('notes').oninput=()=>{try{localStorage.setItem(notesKey,$('notes').value)}catch{}};function showRecords(){$('records').textContent=records.length?records.map((r,i)=>`${i+1}. ${r.case} · ${r.parameter} = ${r.value} ${r.unit}`).join('\n'):'尚无记录';$('records').style.whiteSpace='pre-line';try{localStorage.setItem(notesKey+'-records',JSON.stringify(records))}catch{}}$('record').onclick=()=>{records.push({case:'Key',parameter:'速度',value:$('speed').value,unit:'kn',result:energyMJ(+$('speed').value).toFixed(3)+' MJ'});showRecords()};$('clear').onclick=()=>{records=[];showRecords()};$('download').onclick=()=>{const csv='\ufeffcase,parameter,value,unit,result\n'+records.map(r=>Object.values(r).map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\n');const u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=u;a.download='船桥观察.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};showRecords();
+keyEvidence=bindKeyEvidence({setTime:t=>setProgress(progressAtCollapseTime(t)),stop:()=>{pauseDialogue();stop();keyEvidence?.detach();},view:v=>model?.view(v)});
+function tick(t){if(playing){const dt=Math.min(.1,(t-previous)/1000),seconds=keyTime+dt*+$('replay-rate').value;setProgress(progressAtCollapseTime(seconds));if(seconds>=TIME_RANGE.max)stop()}previous=t;requestAnimationFrame(tick)}requestAnimationFrame(tick);setProgress(0);switchCase();model?.view('cctv');
+window.C06={switchCase,setProgress,cue,getState:()=>({current,model:model?.getState(),energyMJ:energyMJ(+$('speed').value),dialogueCount:10}),dimensions};
+
+document.querySelectorAll(".video-load").forEach(b=>b.onclick=()=>{const cover=b.parentElement,frame=cover.nextElementSibling;frame.src="https://www.youtube-nocookie.com/embed/"+b.dataset.video;frame.hidden=false;cover.hidden=true;});
+
+
+
+addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==parent||event.data?.type!=='demo-visibility')return;const visible=event.data.visible===true;if(!visible){stop();pauseDialogue();keyEvidence?.detach();}model?.setActive(visible);});

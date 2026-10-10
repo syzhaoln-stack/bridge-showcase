@@ -1,0 +1,156 @@
+{
+  "pdf_sha256": "c66e72620519c7930d24c46bbb7f547632a12cf017a286addc6d7bf52ee27b36",
+  "frames": [
+    {
+      "file": "key_cctv_fig23.png",
+      "source_pdf": "bridge_protection_factual.pdf",
+      "pdf_page": 27,
+      "figure": 23,
+      "clip_points": [
+        108.5999984741211,
+        147.6199951171875,
+        507.3900146484375,
+        429.9700012207031
+      ],
+      "scale": 2.5,
+      "view": "NRP FLIR camera",
+      "corrected_relative_seconds": 0,
+      "time_precision": "explicit corrected time in report",
+      "identity": "Original surveillance frame, reproduced in NTSB factual report; grayscale is thermal imaging, not fire",
+      "sha256": "07aba34c021faf413cd5f7fe3f3b38893e39a7f11e8c6b9cdf1c163447524cb9"
+    },
+    {
+      "file": "key_cctv_fig29.png",
+      "source_pdf": "bridge_protection_factual.pdf",
+      "pdf_page": 30,
+      "figure": 29,
+      "clip_points": [
+        104.5,
+        120.510009765625,
+        503.2300109863281,
+        402.4100036621094
+      ],
+      "scale": 2.5,
+      "view": "NRP FLIR camera",
+      "corrected_relative_seconds": 11,
+      "time_precision": "explicit corrected time in report",
+      "identity": "Original surveillance frame, reproduced in NTSB factual report; grayscale is thermal imaging, not fire",
+      "sha256": "abb9536f55175f1f94164a58a4fa0ca1094f198e4280e71aaf414b983c14e740"
+    },
+    {
+      "file": "key_cctv_fig31.png",
+      "source_pdf": "bridge_protection_factual.pdf",
+      "pdf_page": 31,
+      "figure": 31,
+      "clip_points": [
+        79.0,
+        135.07000732421875,
+        528.1799926757812,
+        423.6199951171875
+      ],
+      "scale": 2.5,
+      "view": "NRP FLIR camera",
+      "corrected_relative_seconds": 13,
+      "time_precision": "explicit corrected time in report",
+      "identity": "Original surveillance frame, reproduced in NTSB factual report; grayscale is thermal imaging, not fire",
+      "sha256": "a1d3c3d37284aa85e00d0043fff3bb9033926b5938d2178c3123ca97cc028c82"
+    },
+    {
+      "file": "key_cctv_fig33.png",
+      "source_pdf": "bridge_protection_factual.pdf",
+      "pdf_page": 32,
+      "figure": 33,
+      "clip_points": [
+        73.9000015258789,
+        120.50997924804688,
+        536.5,
+        412.739990234375
+      ],
+      "scale": 2.5,
+      "view": "NRP FLIR camera",
+      "corrected_relative_seconds": 14,
+      "time_precision": "explicit corrected time in report",
+      "identity": "Original surveillance frame, reproduced in NTSB factual report; grayscale is thermal imaging, not fire",
+      "sha256": "42b00fa799f052e5f2189fbd557e19f74edca8f520d4811f037bc2501d04a6b2"
+    },
+    {
+      "file": "key_cctv_fig35.png",
+      "source_pdf": "bridge_protection_factual.pdf",
+      "pdf_page": 33,
+      "figure": 35,
+      "clip_points": [
+        79.0,
+        120.50997924804688,
+        528.1900024414062,
+        403.8599853515625
+      ],
+      "scale": 2.5,
+      "view": "NRP FLIR camera",
+      "corrected_relative_seconds": null,
+      "time_precision": "sequence only; report caption does not provide an exact timestamp",
+      "identity": "Original surveillance frame, reproduced in NTSB factual report; grayscale is thermal imaging, not fire",
+      "sha256": "4f399925adcbba11699c0f25403a2186c0b5ac450a0bcc231b450d2be179ea65"
+    },
+    {
+      "file": "key_cctv_fig36.png",
+      "source_pdf": "bridge_protection_factual.pdf",
+      "pdf_page": 33,
+      "figure": 36,
+      "clip_points": [
+        79.0,
+        429.20001220703125,
+        528.1700439453125,
+        709.9500122070312
+      ],
+      "scale": 2.5,
+      "view": "NRP FLIR camera",
+      "corrected_relative_seconds": null,
+      "time_precision": "sequence_only; Figure36 has no individual corrected timestamp",
+      "identity": "Original surveillance frame, reproduced in NTSB factual report; grayscale is thermal imaging, not fire",
+      "sha256": "241708b38ea790735cef1f18086adc203ed5d181f7b838ff8ce65d73862abce5",
+      "event_association": {
+        "relative_seconds": 15,
+        "clock": "01:29:24 EDT",
+        "event": "Span20 collapsed",
+        "source": "MIR25-40 Appendix C (printed226/PDF228)",
+        "relation": "near the +15s event; association is not an exact timestamp for this extracted frame"
+      }
+    },
+    {
+      "file": "key_cctv_fig37.png",
+      "source_pdf": "bridge_protection_factual.pdf",
+      "pdf_page": 34,
+      "figure": 37,
+      "clip_points": [
+        79.0,
+        91.40000915527344,
+        528.1700439453125,
+        374.20001220703125
+      ],
+      "scale": 2.5,
+      "view": "NRP FLIR camera",
+      "corrected_relative_seconds": null,
+      "time_precision": "sequence only; report caption does not provide an exact timestamp",
+      "identity": "Original surveillance frame, reproduced in NTSB factual report; grayscale is thermal imaging, not fire",
+      "sha256": "882f8ace4456f151884bc884ddde8fd90c609cc8980a15cf4c18a3829b0f520b"
+    },
+    {
+      "file": "key_cctv_fig38.png",
+      "source_pdf": "bridge_protection_factual.pdf",
+      "pdf_page": 34,
+      "figure": 38,
+      "clip_points": [
+        79.0,
+        427.70001220703125,
+        528.1300048828125,
+        708.9000244140625
+      ],
+      "scale": 2.5,
+      "view": "NRP FLIR camera",
+      "corrected_relative_seconds": null,
+      "time_precision": "sequence only; report caption does not provide an exact timestamp",
+      "identity": "Original surveillance frame, reproduced in NTSB factual report; grayscale is thermal imaging, not fire",
+      "sha256": "656fb78826ec234840c7e19767eb653042876563a905ae03ede1c82ae0769140"
+    }
+  ]
+}

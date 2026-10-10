@@ -1,0 +1,67 @@
+{
+  "checked": "2026-09-23",
+  "records": [
+    {
+      "id": "K1",
+      "title": "Contact of Containership Dali with Francis Scott Key Bridge and Subsequent Bridge Collapse",
+      "authority": "NTSB",
+      "document": "MIR-25-40",
+      "date": "2025-11-18",
+      "status": "Final; case Completed",
+      "url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/MIR2540.pdf",
+      "local": "evidence/MIR2540.pdf",
+      "sha256": "5f2735063eb2bee3c41d40e2bd55f98757b938c1d37710b5d967b7652697c6de"
+    },
+    {
+      "id": "K2",
+      "title": "Bridge Protection Systems Group Chairman Factual Report",
+      "authority": "NTSB docket / MDTA drawings",
+      "url": "https://data.ntsb.gov/Docket/Document/docBLOB?FileExtension=pdf&FileName=Bridge+Protection+Systems+Group+Chairman%27s+Factual+Report%27-Rel.pdf&ID=18419216",
+      "local": "evidence/bridge_protection_factual.pdf",
+      "sha256": "c66e72620519c7930d24c46bbb7f547632a12cf017a286addc6d7bf52ee27b36"
+    },
+    {
+      "id": "K3",
+      "title": "DCA24MM031 Preliminary Report",
+      "authority": "NTSB",
+      "url": "https://www.ntsb.gov/investigations/Documents/DCA24MM031_PreliminaryReport%203.pdf",
+      "local": "evidence/Key_preliminary.pdf",
+      "use": "geometry only; final cause superseded byK1",
+      "sha256": "eab858bb93c54ccc075ccca7dfaa65e94b87b189410dc8f441cbaff9e193ff5b"
+    }
+  ],
+  "media": [
+    {
+      "file": "evidence/final_p066.png",
+      "identity": "preaccident photograph from MDTA reproduced NTSB Fig27",
+      "source": "K1 PDF66",
+      "license": "attribute MDTA/NTSB; do not assign a blanket license to all report illustrations"
+    },
+    {
+      "file": "evidence/final_p081.png",
+      "identity": "technical profile of ship, NOT photograph",
+      "source": "K1 PDF81 Fig41"
+    },
+    {
+      "file": "evidence/final_p059.png",
+      "identity": "contact diagram with onsite photo inset",
+      "source": "K1 PDF59 Fig19"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=bu7PJoxaMZg",
+      "identity": "NTSB electrical-failure cause animation2025-11-18, NOT accident CCTV or collapse kinematics",
+      "verification": "linked by official case; streaming not frame-by-frame verified"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=CwgOHpZlxvc",
+      "identity": "NTSB postaccident aerial footage",
+      "verification": "official case link; streaming requires connection"
+    }
+  ],
+  "unresolved": [
+    "Lixinsha official full investigation PDF direct link and ship survey dimensions not acquired; do not mislabel nearby Jiujiang ship-sinking PDF as this report.",
+    "Lixinsha original CCTV uploader and rights unresolved; no unverified surveillance clip embedded.",
+    "Brooklyn final probable cause not issued on case page as checked.",
+    "Exact Key ship stow, pier member dimensions, fracture sequence and ground contact not reconstructed."
+  ]
+}

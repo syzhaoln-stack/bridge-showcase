@@ -1,0 +1,93 @@
+{
+  "provider": "Volcengine Doubao",
+  "model": "seed-audio-1.0",
+  "edition": "senior-and-junior-students-v2-key-only",
+  "voices": {
+    "curious": "zh_female_vv_uranus_bigtts",
+    "expert": "zh_male_m191_uranus_bigtts"
+  },
+  "duration": 129.42558333333335,
+  "segments": [
+    {
+      "index": 0,
+      "role": "curious",
+      "text": "这艘船是从桥墩旁边擦过去的吗？看起来只是船头碰了一下，怎么连旁边的桥跨也跟着掉了？",
+      "cue": "key:impact",
+      "start": 0,
+      "end": 7.251875
+    },
+    {
+      "index": 1,
+      "role": "expert",
+      "text": "碰到的是十七号墩，它托着连续桁架的一个主要支点。船撞坏桥墩，上面的桥就换了一套支承条件。原来能把荷载送到地面的路，在这里断了。",
+      "cue": "key:loadpath",
+      "start": 7.551875,
+      "end": 21.931875
+    },
+    {
+      "index": 2,
+      "role": "curious",
+      "text": "桁架不是有很多三角形吗？一根杆不行，别的杆接着分担，难道也接不住？",
+      "cue": "key:truss",
+      "start": 22.411875000000002,
+      "end": 28.97985416666667
+    },
+    {
+      "index": 3,
+      "role": "expert",
+      "text": "三角形要连在可靠的支点上才有用。少一根杆和失去一座主墩，影响的范围差得很大。剩下的构件会重新受力，可它们不一定有足够的强度和稳定性，去跨过突然变大的距离。",
+      "cue": "key:collapse",
+      "start": 29.279854166666667,
+      "end": 46.55985416666667
+    },
+    {
+      "index": 4,
+      "role": "curious",
+      "text": "我刚才注意到，桥已经开始往下落，桥墩还没完全倒。是不是支点只要变软，事情就已经在发展了？",
+      "cue": "key:timeline",
+      "start": 47.03985416666667,
+      "end": 56.919854166666674
+    },
+    {
+      "index": 5,
+      "role": "expert",
+      "text": "对。这里不能只分成桥墩完好和桥墩消失两种状态。碰撞会先造成损伤和位移，支承就可能失效。调查记下的顺序是，碰撞六秒后主跨开始垮，十三秒后十七号墩倒塌。",
+      "cue": "key:timeline",
+      "start": 57.21985416666667,
+      "end": 74.49985416666667
+    },
+    {
+      "index": 6,
+      "role": "curious",
+      "text": "河里这些圆形的东西，是专门挡船的吗？那艘船怎么还能到桥墩跟前？",
+      "cue": "key:protection",
+      "start": 74.97985416666667,
+      "end": 81.68558333333334
+    },
+    {
+      "index": 7,
+      "role": "expert",
+      "text": "那是防撞墩，桥墩附近还有防撞护围。它们只占据特定位置，不能当成围住桥的整面墙。这次船没有碰到那四座防撞墩。看平面图，航迹、船宽和防护的位置要放在一起判断。",
+      "cue": "key:plan",
+      "start": 81.98558333333334,
+      "end": 100.76558333333334
+    },
+    {
+      "index": 8,
+      "role": "curious",
+      "text": "要是把船速降一半，撞击就减半吗？还有新闻说的九万多总吨，是不是就能拿来算？",
+      "cue": "key:ship",
+      "start": 101.24558333333334,
+      "end": 111.42558333333335
+    },
+    {
+      "index": 9,
+      "role": "expert",
+      "text": "只看平移动能，质量不变时，速度减半，动能会降到四分之一。但碰撞力还跟接触时间、船头和桥墩怎样变形有关。总吨是容积指标，不能当质量用；算船的运动，要找它当时的排水量。",
+      "cue": "key:energy",
+      "start": 111.72558333333335,
+      "end": 129.22558333333336
+    }
+  ],
+  "verification": "Full PCM and final MP3 decode passed; provider subtitles retained, not a claim of human listening or verified pronunciation."
+}

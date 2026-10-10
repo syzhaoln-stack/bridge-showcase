@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17384b"><link rel="icon" href="data:,">
+  <meta name="description" content="桥梁游戏、巴尔的摩船撞桥垮塌教学推演、可取放的桥梁模型墙。三个可直接体验的桥梁交互案例。">
+  <title>桥梁交互体验 · 游戏、推演与模型墙</title>
+  <link rel="stylesheet" href="presentation.css">
+</head>
+<body>
+  <aside class="rail" aria-label="展示导航">
+    <button class="brand" id="homeButton" aria-label="返回三个展示"><span class="brand-mark">△</span><span>桥梁交互体验<br><small>玩 · 观察 · 推演</small></span></button>
+    <nav id="caseNav"></nav>
+    <div class="rail-foot">三个展示，自由探索<span class="rail-sub">切换时保留当前操作</span></div>
+  </aside>
+  <main>
+    <header class="topbar">
+      <button id="menuButton" class="icon-button" aria-label="展开展示导航">☰</button>
+      <div class="current"><span id="currentGroup">桥梁交互体验</span><h1 id="currentTitle">从搭桥，到看懂一座桥</h1></div>
+      <div class="actions"><button id="restartButton" hidden>重新开始</button><a id="externalLink" target="_blank" rel="noopener" hidden>单独打开 ↗</a><button id="shareButton">复制链接</button><button id="fullscreenButton">全屏</button></div>
+    </header>
+    <section id="overview" class="overview">
+      <div class="thesis"><p class="eyebrow">BRIDGE LAB · 三个可以亲手探索的案例</p><h2>搭一座桥<br>换个角度，<em>看懂它</em></h2><div class="goals"><p><span>游戏</span><strong>搭建 · 试车 · 改进</strong></p><p><span>观察与推演</span><strong>旋转模型 · 追踪过程</strong></p></div><p class="intro">在游戏中试验你的想法，在三维模型中寻找结构关系。<br>选择一个展示开始，也可以把当前案例的链接分享给他人。</p></div>
+      <div id="caseGrid" class="case-grid"></div>
+    </section>
+    <section id="stage" class="stage" hidden aria-label="当前展示">
+      <div id="stageContent" class="stage-content"></div>
+      <div class="cuebar"><div><span class="cue-label">试一试</span><span id="cueText"></span></div><button id="nextButton">下一个展示 →</button></div>
+    </section>
+    <div id="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="presentation.js"></script>
+</body>
+</html>

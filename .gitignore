@@ -1,0 +1,9 @@
+verification/
+.local-audit/
+*.log
+__pycache__/
+package-manifest.json
+external-links.json
+preview.py
+package_showcase.py
+*.local.*

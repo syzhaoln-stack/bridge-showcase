@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#d8d6d0" name="theme-color"/>
+<link href="data:," rel="icon"/>
+<title>桥梁模型墙 · 拿下来，慢慢看</title>
+<link href="wall.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="wall-header">
+<a class="back-link" href="../../../index.html" target="_top">← 返回展示台</a>
+<div class="wall-title"><span>BRIDGE MODEL ROOM</span><h1>桥梁模型墙</h1></div>
+
+</header>
+<main>
+<nav aria-label="按结构体系浏览" class="family-bar">
+<div id="familyButtons"></div>
+<span id="collectionCount">20 件模型</span>
+</nav>
+<section aria-label="三维桥梁模型收藏墙" id="modelRoom">
+<div aria-label="真实三维桥梁模型陈列墙。点击模型或对应铭牌取出观察。" id="wallCanvas" role="img"></div>
+<div aria-label="选择墙上的模型" id="wallLabels"></div>
+<div class="room-hint" id="roomHint"><span class="hint-dot"></span>点一座桥，或点它的铭牌，拿下来看看。</div>
+<div id="loading" role="status">正在布置模型墙…</div>
+<div hidden="" id="inspector">
+<div class="held-title"><p id="heldFamily"></p><h2 id="heldTitle"></h2><span id="heldSubtitle"></span></div>
+<button class="return-button" id="returnButton">↗ 放回墙上</button>
+<div class="held-detail"><p id="heldDimensions"></p><p id="heldCable"></p></div>
+<div class="held-bottom">
+<div aria-label="调整手中模型" class="view-controls" role="group">
+<button class="active" data-view="iso">整体</button><button data-view="side">侧面</button><button data-view="end">端部</button><button data-view="top">俯视</button><span></span><button aria-label="缩小模型" id="zoomOut">−</button><button aria-label="放大模型" id="zoomIn">＋</button><button id="resetButton">复位</button>
+</div>
+<div class="held-actions"><label><input checked="" id="showPeople" type="checkbox"/>1.75 m 人物</label></div>
+<p class="gesture-note">拖动旋转 · 滚轮 / 双指缩放 <span>每座桥单独缩尺，人物与该桥保持比例</span></p>
+</div>
+</div>
+</section>
+<footer><span>梁 · 拱 · 斜拉 · 悬索 · 组合</span><span>形态与连接的教学模型收藏</span></footer>
+</main>
+<div aria-live="polite" class="sr-only" id="announcement" role="status"></div>
+<script src="wall.js" type="module"></script>
+</body>
+</html>
